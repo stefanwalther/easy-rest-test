@@ -1,17 +1,16 @@
 const superTest = require('supertest');
 const HttpStatus = require('http-status-codes');
-const AppServer = require('./../../src/app-server');
-
-const defaultConfig = require('./../test-lib/default-config');
 const pkg = require('read-pkg-up').sync().pkg;
 
-describe('[integration] => health-check', () => {
+const AppServer = require('./../../src/app-server');
+const config = require('./../../src/config/server-config');
 
+describe('[integration] => health-check', () => {
   let server;
   let appServer;
 
   beforeEach(async () => {
-    appServer = new AppServer(defaultConfig);
+    appServer = new AppServer(config);
     await appServer.start();
     server = superTest(appServer.server);
   });

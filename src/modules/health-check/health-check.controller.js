@@ -2,12 +2,12 @@ const pkg = require('./../../../package.json');
 
 class HealthController {
 
-  // Everbody can call the router, so we are fine.
-  static all(req, res, next) {
-    next();
-  }
+  // // Everbody can call the router, so we are fine.
+  // static all(req, res, next) {
+  //   next();
+  // }
 
-  static get(req, res, next) {
+  static get(req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send({
       ts: new Date().toJSON(),
@@ -15,7 +15,6 @@ class HealthController {
       name: pkg.name,
       repository: pkg.repository
     });
-    next();
   }
 
 }

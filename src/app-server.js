@@ -19,7 +19,7 @@ class AppServer {
 
   async start() {
 
-   await initializer(this.app, {directory: path.join(__dirname, 'initializers')});
+    await initializer(this.app, {directory: path.join(__dirname, 'initializers')});
 
     try {
       this.server = await this.app.listen(this.config.PORT);

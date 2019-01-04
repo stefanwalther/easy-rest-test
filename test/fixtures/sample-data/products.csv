@@ -1,0 +1,78 @@
+﻿ProductID;CategoryID;ProductName;SupplierID
+1;1;Lenin Jeansshorts;1
+2;1;Mr X Trousers;1
+3;2;Chantell Shirt;1
+4;2;Oyaki Kimono;2
+5;1;O-Man Underwear;2
+6;2;Shagall Socks;3
+7;7;Conserve Shoes;3
+8;2;Tuxedo;3
+9;6;Fuji Boots;4
+10;8;Sapporoo Gloves;4
+11;1;Desperado Jeans;5
+12;4;Tiny Winy Hot Bikini;5
+13;8;Aino Shoes;6
+14;7;Kool Sunglasses;6
+15;2;Sumi Underwear;6
+16;3;Wimbledon T-Shirt;7
+17;6;TieBreak Tennis shoes;7
+18;8;Deuce shirt;7
+19;3;Squash Shorts;8
+20;3;Tennis Suit;8
+21;3;Basket Shoes;8
+22;5;Ravellis Träskor;9
+23;5;DSW;9
+24;1;Samba Socker  Socks;10
+25;3;Basket Vest;11
+26;3;Bike Helmet;11
+27;3;Tracksuit;11
+28;7;RDL Suit;12
+29;6;Davenport;12
+30;8;Baby Dark Lounge Suit;13
+31;4;Rossi Bermuda Shorts;14
+32;4;Rossi Bikkini;14
+33;3;Car Boots;15
+34;4;Baywatch Bikkini;16
+35;4;LA. Shorts;16
+36;8;Mehmet-Tröja;17
+37;8;Mehmet-Skor;17
+38;2;Le Baby Dress;18
+39;2;Terence Top;18
+40;8;Duck Trousers;19
+41;8;Duck Shirt;19
+42;5;Balett Shoes;20
+43;4;Summer Shorts;20
+44;2;Okkaba Skin Jackets;20
+45;6;Danske Treshoe;21
+46;8;Rodbye Troje;21
+47;6;Lundenhagen Boots;22
+48;6;Root Boot;22
+49;3;Finnish Sport Blades;23
+50;3;Finnish Swimsuit;23
+51;6;Snake Boots;24
+52;5;Small Crocodile Boots;24
+53;2;Jumpin Jack Flash Dress;24
+54;3;Patamonia Fleece Jacket;25
+55;3;Feiss Fleece Trousers;25
+56;5;High Heels Shoes;26
+57;5;Burned Rubber Shoes;26
+58;8;Ga-Ga Dress;27
+59;3;Rasta WCT;28
+60;3;Game Over T-Shirt;28
+61;3;Adihash Running Shoe;29
+62;3;Sheat Shoes;29
+63;2;Serve-Shirt;7
+64;5;WFS shoes;12
+65;2;Stretch oui-pants;2
+66;2;Langoste Shirt;2
+67;2;X-Dress;16
+68;3;Cap;8
+69;3;Racing Truck  Socks;15
+70;1;US-Master Jeans;7
+71;1;Atles Lussekofta;15
+72;4;Rossi Shorts;14
+73;8;Mehmet-Napp;17
+74;7;Nikee Running Shoes;4
+75;1;Bow tie;12
+76;2;Minnki Pälsii;23
+77;2;Skirt;12
