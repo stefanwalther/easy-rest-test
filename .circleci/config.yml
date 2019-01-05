@@ -24,7 +24,7 @@ jobs:
           name: Run unit tests
           command: npm run test:unit
       - run:
-          name: Run unit tests
+          name: Run integration tests
           command: npm run test:integration
 #      - run:
 #          name: Coverage report

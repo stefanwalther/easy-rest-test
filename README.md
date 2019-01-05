@@ -26,15 +26,17 @@ This is currently a very early iteration of the basic idea of "exposing .csv fil
 [Any feedback is very appreciated!](https://github.com/stefanwalther/csv-to-rest/issues)
 So far the following additions are planned:
 
-- [ ] Error handling in case of invalid .csv files
-- [ ] Expose datasets via OpenApi/Swagger
-- [ ] HATEOAS links
-- [ ] In memory storage of datasets
-- [ ] Support paging
-- [ ] Support JWT authentication
-- [ ] Docker Image
-- [ ] CircleCI Tests
-- [ ] Instructions how to deploy within minutes to heroku & co.
+- [ ] (feat): Error handling in case of invalid .csv files
+- [ ] (feat): Expose datasets via OpenApi/Swagger
+- [ ] (feat): HATEOAS links
+- [ ] (feat): In memory storage of datasets
+- [ ] (feat): Support paging
+- [ ] (feat): Support different authentication methods
+- [ ] (ci): Docker Image
+- [x] (ci): CircleCI Tests
+- [ ] (test): More integration tests
+- [ ] (docs): Instructions how to deploy within minutes to heroku & Co.
+- [ ] (test): Coverage report
 
 ## About
 
