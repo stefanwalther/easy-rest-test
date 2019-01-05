@@ -29,6 +29,7 @@ Your .csv files are now exposed as a REST endpoint, e.g.:
 - [ ] Support JWT authentication
 - [ ] Docker Image
 - [ ] CircleCI Tests
+- [ ] Instructions how to deploy within minutes to heroku & co.
 
 ## About
 

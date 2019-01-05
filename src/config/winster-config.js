@@ -26,6 +26,6 @@ module.exports = {
     }
   ],
   test: [
-    // your transports for test
+    // Your transports for test
   ]
 };

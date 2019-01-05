@@ -6,3 +6,4 @@
 - [ ] Support JWT authentication
 - [ ] Docker Image
 - [ ] CircleCI Tests
+- [ ] Instructions how to deploy within minutes to heroku & co.
