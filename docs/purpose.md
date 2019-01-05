@@ -1,2 +1,2 @@
-_{%=name%}_ enables you to provide a REST service within minutes based on a few given .csv files.
-
+**_{%=name%}_** enables you to provide a REST service within minutes based on a few given .csv files.
+Extend your REST service by just adding additional .csv files ...

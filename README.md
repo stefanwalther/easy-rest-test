@@ -5,7 +5,8 @@
 ---
 
 ## Purpose
-_csv-to-rest_ enables you to provide a REST service within minutes based on a few given .csv files.
+**_csv-to-rest_** enables you to provide a REST service within minutes based on a few given .csv files.
+Extend your REST service by just adding additional .csv files ...
 
 ## Usage
 There are only a few steps you need to follow:
@@ -17,10 +18,14 @@ There are only a few steps you need to follow:
 
 Your .csv files are now exposed as a REST endpoint, e.g.:
 
-- The file `./data/sales-data.csv`
+- The content of the file `./data/sales-data.csv`
 - Is now available at `http://localhost:3000/sales-data`
 
 ## Roadmap
+This is currently a very early iteration of the basic idea of "exposing .csv files through REST".
+[Any feedback is very appreciated!](https://github.com/stefanwalther/csv-to-rest/issues)
+So far the following additions are planned:
+
 - [ ] Error handling in case of invalid .csv files
 - [ ] Expose datasets via OpenApi/Swagger
 - [ ] HATEOAS links
