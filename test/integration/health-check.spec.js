@@ -3,7 +3,7 @@ const HttpStatus = require('http-status-codes');
 const pkg = require('read-pkg-up').sync().pkg;
 
 const AppServer = require('./../../src/app-server');
-const config = require('./../../src/config/server-config');
+const config = require('./../config/server-config');
 
 describe('[integration] => health-check', () => {
   let server;

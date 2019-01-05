@@ -1,0 +1,8 @@
+- [ ] Error handling in case of invalid .csv files
+- [ ] Expose datasets via OpenApi/Swagger
+- [ ] HATEOAS links
+- [ ] In memory storage of datasets
+- [ ] Support paging
+- [ ] Support JWT authentication
+- [ ] Docker Image
+- [ ] CircleCI Tests

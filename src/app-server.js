@@ -9,7 +9,7 @@ const defaultConfig = require('./config/server-config.js');
 class AppServer {
 
   constructor(config) {
-    this.config = _.extend(_.clone(config), defaultConfig || {});
+    this.config = _.extend(defaultConfig, _.clone(config) || {});
 
     this.app = null;
     this.server = null;
