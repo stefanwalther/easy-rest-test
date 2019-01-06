@@ -16,3 +16,4 @@ class Hateoasify {
     return this;
   }
 }
+/* eslint-endable no-unused-vars */
