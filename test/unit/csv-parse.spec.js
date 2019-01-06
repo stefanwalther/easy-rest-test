@@ -1,5 +1,6 @@
 const parse = require('csv-parse/lib/sync');
 const path = require('path');
+
 const utils = require('./../../src/utils');
 
 describe('[unit] => csv-parse', () => {

@@ -26,7 +26,8 @@ describe('[integration] => generic dataset', () => {
       .get('/offices')
       .expect(HttpStatus.OK)
       .then(result => {
-        expect(result.body).to.exist.to.be.an('array');
+        expect(result.body).to.have.a.property('data');
+        expect(result.body.data).to.exist.to.be.an('array');
       });
   });
   it('returns an array for `offices`', async () => {
@@ -34,7 +35,8 @@ describe('[integration] => generic dataset', () => {
       .get('/sales-data')
       .expect(HttpStatus.OK)
       .then(result => {
-        expect(result.body).to.exist.to.be.an('array');
+        expect(result.body).to.have.a.property('data');
+        expect(result.body.data).to.exist.to.be.an('array');
       });
   });
 });

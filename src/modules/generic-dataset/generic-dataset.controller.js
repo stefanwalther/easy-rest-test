@@ -20,7 +20,7 @@ class GenericDatasetController {
     };
 
     let records = parse(fileContent, parseOptions);
-    return expressResult.ok(res, records);
+    return expressResult.ok(res, {data: records});
   }
 
 }
