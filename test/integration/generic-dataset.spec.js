@@ -5,13 +5,13 @@ const testConfig = require('./../config/server-config');
 const AppServer = require('./../../src/app-server');
 
 const DATASETS = [
-      'categories',
-      'employees',
-      'offices',
-      'products',
-      'sales-data',
-      'suppliers'
-    ];
+  'categories',
+  'employees',
+  'offices',
+  'products',
+  'sales-data',
+  'suppliers'
+];
 
 describe('[integration] => generic dataset', () => {
   let server;
@@ -31,29 +31,28 @@ describe('[integration] => generic dataset', () => {
   });
 
   describe('`GET /:name`', () => {
-
     DATASETS.forEach(item => {
       it(`should return an array for '${item}'`, async () => {
         await server
-        .get(`/${item}`)
-        .expect(HttpStatus.OK)
-        .then(result => {
-          expect(result.body).to.have.a.property('data');
-          expect(result.body.data).to.exist.to.be.an('array');
-        });
-      })
+          .get(`/${item}`)
+          .expect(HttpStatus.OK)
+          .then(result => {
+            expect(result.body).to.have.a.property('data');
+            expect(result.body.data).to.exist.to.be.an('array');
+          });
+      });
     });
   });
 
   describe('`GET /file/:name`', () => {
-    it('downloads a file', async() => {
+    it('downloads a file', async () => {
       const item = 'offices';
       await server
         .get(`/file/${item}`)
         .expect(HttpStatus.OK)
         .then(result => {
           console.log(result.headers);
-        })
-    })
+        });
+    });
   });
 });
