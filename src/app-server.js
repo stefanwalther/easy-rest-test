@@ -22,6 +22,7 @@ class AppServer {
     await initializer(this.app, {directory: path.join(__dirname, 'initializers')});
 
     this.app.use(express.static('files'));
+    this.app.use('/files', express.static(path.join(__dirname, 'files')));
 
     try {
       this.server = await this.app.listen(this.config.PORT);
