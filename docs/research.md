@@ -5,7 +5,8 @@
 ## Storage
 
 - Level
-- Use the adapter pattern (in memory, db or open directly)
+- Use the adapter pattern (in memory, db or open directly): https://github.com/milenvoutchev/quality-chapter-es6-design-patterns 
+
 
 ## Hateoas
 
