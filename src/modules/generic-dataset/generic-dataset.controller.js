@@ -29,7 +29,8 @@ class GenericDatasetController {
 
     const filePath = path.resolve(__dirname, `./../../../data/${dataset}.csv`);
     const fileName = path.basename(filePath);
-    return res.setHeader('charset', 'utf-8').download(filePath, fileName);
+    res.setHeader('charset', 'utf-8');
+    return res.download(filePath, fileName);
 
   }
 
