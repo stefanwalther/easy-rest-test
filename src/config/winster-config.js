@@ -29,7 +29,7 @@ module.exports = {
       options: {
         name: 'Console',
         level: 'trace',
-        colorize: true,
+        colorize: false,
         json: false,
         prettyPrint(object) {
           return JSON.stringify(object, null, 2);

@@ -6,20 +6,26 @@ const GenericDatasetController = require('./../generic-dataset/generic-dataset.c
 class GenericController {
 
   static get(req, res) {
-    logger.trace('[GenericController.name]', req.params.name);
+    logger.trace('[GenericController.get.name]', req.params.name);
 
     let resource = req.params.name;
 
     switch (resource) {
       case 'health-check':
         return HealthCheckController.get(req, res);
-      case 'api-docs':
+      case 'api-docs': // Reserved word
+      case 'file': // Reserved word
         break;
       default:
         return GenericDatasetController.get(req, res);
     }
-
   }
+
+  static getFile(req, res) {
+    logger.trace('[GenericController.getFile.name]', req.params.name);
+    return GenericDatasetController.getFile(req, res);
+  }
+
 }
 
 module.exports = GenericController;

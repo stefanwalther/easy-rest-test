@@ -4,6 +4,15 @@ const HttpStatus = require('http-status-codes');
 const testConfig = require('./../config/server-config');
 const AppServer = require('./../../src/app-server');
 
+const DATASETS = [
+  'categories',
+  'employees',
+  'offices',
+  'products',
+  'sales-data',
+  'suppliers'
+];
+
 describe('[integration] => generic dataset', () => {
   let server;
   let appServer;
@@ -21,22 +30,29 @@ describe('[integration] => generic dataset', () => {
     await appServer.stop();
   });
 
-  it('returns an array for `offices`', async () => {
-    await server
-      .get('/offices')
-      .expect(HttpStatus.OK)
-      .then(result => {
-        expect(result.body).to.have.a.property('data');
-        expect(result.body.data).to.exist.to.be.an('array');
+  describe('`GET /:name`', () => {
+    DATASETS.forEach(item => {
+      it(`should return an array for '${item}'`, async () => {
+        await server
+          .get(`/${item}`)
+          .expect(HttpStatus.OK)
+          .then(result => {
+            expect(result.body).to.have.a.property('data');
+            expect(result.body.data).to.exist.to.be.an('array');
+          });
       });
+    });
   });
-  it('returns an array for `offices`', async () => {
-    await server
-      .get('/sales-data')
-      .expect(HttpStatus.OK)
-      .then(result => {
-        expect(result.body).to.have.a.property('data');
-        expect(result.body.data).to.exist.to.be.an('array');
-      });
+
+  describe('`GET /file/:name`', () => {
+    it('downloads a file', async () => {
+      const item = 'offices';
+      await server
+        .get(`/file/${item}`)
+        .expect(HttpStatus.OK)
+        .then(result => {
+          console.log(result.headers);
+        });
+    });
   });
 });

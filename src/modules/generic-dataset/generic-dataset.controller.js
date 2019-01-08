@@ -23,6 +23,16 @@ class GenericDatasetController {
     return expressResult.ok(res, {data: records});
   }
 
+  static async getFile(req, res) {
+    const dataset = req.params.name;
+    logger.trace('[GenericDatasetController.getFile]', dataset);
+
+    const filePath = path.resolve(__dirname, `./../../../data/${dataset}.csv`);
+    const fileName = path.basename(filePath);
+    return res.download(filePath, fileName);
+
+  }
+
 }
 
 module.exports = GenericDatasetController;
