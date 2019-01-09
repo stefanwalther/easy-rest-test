@@ -26,6 +26,7 @@ class GenericDatasetController {
     let result = {
       data: {}
     };
+
     await Promise.all(datasets.map(async item => {
       result.data[item] = await GenericDatasetController._getDataSet(item);
     }));
