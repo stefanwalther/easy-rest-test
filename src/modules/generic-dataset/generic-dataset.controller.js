@@ -23,12 +23,14 @@ class GenericDatasetController {
     const datasets = _.split(_.trim(req.params.name), ',');
     logger.trace('[GenericDatasetController.get]', datasets);
 
-    let records = await Promise.all(datasets.map(async item => {
-      logger.trace('item', item);
-      return {[item]: await GenericDatasetController._getDataSet(item)};
+    let result = {
+      data: {}
+    };
+    await Promise.all(datasets.map(async item => {
+      result.data[item] = await GenericDatasetController._getDataSet(item);
     }));
 
-    return expressResult.ok(res, {data: records});
+    return expressResult.ok(res, result);
   }
 
   static async getFile(req, res) {
