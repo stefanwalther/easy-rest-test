@@ -5,7 +5,7 @@ const GenericDatasetController = require('./../generic-dataset/generic-dataset.c
 
 class GenericController {
 
-  static get(req, res) {
+  static async get(req, res) {
     logger.trace('[GenericController.get.name]', req.params.name);
 
     let resource = req.params.name;
@@ -21,7 +21,7 @@ class GenericController {
     }
   }
 
-  static getFile(req, res) {
+  static async getFile(req, res) {
     logger.trace('[GenericController.getFile.name]', req.params.name);
     return GenericDatasetController.getFile(req, res);
   }

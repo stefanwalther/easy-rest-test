@@ -4,6 +4,8 @@ const path = require('path');
 const express = require('express');
 const logger = require('winster').instance();
 
+const {decorateApp} = require('@awaitjs/express');
+
 const defaultConfig = require('./config/server-config.js');
 
 class AppServer {
@@ -14,15 +16,12 @@ class AppServer {
     this.app = null;
     this.server = null;
 
-    this.app = express();
+    this.app = decorateApp(express());
   }
 
   async start() {
 
     await initializer(this.app, {directory: path.join(__dirname, 'initializers')});
-
-    this.app.use(express.static('files'));
-    this.app.use('/files', express.static(path.join(__dirname, 'files')));
 
     try {
       this.server = await this.app.listen(this.config.PORT);
@@ -46,8 +45,8 @@ class AppServer {
     } else {
       logger.trace('[app-server]  No server to close');
     }
-
   }
+
 }
 
 module.exports = AppServer;
