@@ -26,8 +26,8 @@ class GenericDatasetController {
     };
 
     logger.trace('ctx.query', ctx.query);
-    if (ctx.query['delay']) {
-      options.delay = ctx.query['delay'];
+    if (ctx.query.delay) {
+      options.delay = ctx.query.delay;
     }
 
     return options;
