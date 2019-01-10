@@ -43,6 +43,18 @@ describe('[integration] => generic dataset', () => {
           });
       });
     });
+
+    it('should delay the result using query option `delay`', async () => {
+      let tsStart = new Date();
+      await server
+        .get(`/${DATASETS[0]}`)
+        .query({delay: 1000})
+        .expect(HttpStatus.OK)
+        .then(() => {
+          let tsEnd = new Date();
+          expect(tsEnd - tsStart).to.be.above(1000);
+        });
+    }).timeout(1500);
   });
 
   describe('`GET /file/:name`', () => {

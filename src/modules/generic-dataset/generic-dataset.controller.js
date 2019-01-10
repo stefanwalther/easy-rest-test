@@ -20,9 +20,30 @@ class GenericDatasetController {
     return parse(fileContent, parseOptions);
   }
 
+  static _getOptions(ctx) {
+    let options = {
+      delay: 0
+    };
+
+    logger.trace('ctx.query', ctx.query);
+    if (ctx.query.delay) {
+      options.delay = ctx.query.delay;
+    }
+
+    return options;
+  }
+
   static async get(ctx) {
     const datasets = _.split(_.trim(ctx.params.name), ',');
     logger.trace('[GenericDatasetController.get]', datasets);
+
+    const options = GenericDatasetController._getOptions(ctx);
+    logger.trace('[GenericDatasetController.get > options]', options);
+
+    if (options.delay > 0) {
+      logger.trace(`[GenericDatasetController.get] > Delay the response for ${options.delay} ms`);
+      await utils.sleep(options.delay);
+    }
 
     let result = {
       data: {}
@@ -32,6 +53,7 @@ class GenericDatasetController {
       result.data[item] = await GenericDatasetController._getDataSet(item);
     }));
 
+    logger.trace('[GenericDatasetController.get] > return the result');
     ctx.response.status = 200;
     ctx.response.body = result;
 
