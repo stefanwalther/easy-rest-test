@@ -1,22 +1,11 @@
 const pkg = require('./../../../package.json');
 
-class HealthController {
-
-  // // Everbody can call the router, so we are fine.
-  // static all(req, res, next) {
-  //   next();
-  // }
-
-  static get(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send({
-      ts: new Date().toJSON(),
-      version: pkg.version,
-      name: pkg.name,
-      repository: pkg.repository
-    });
-  }
-
-}
-
-module.exports = HealthController;
+module.exports.get = ctx => {
+  ctx.status = 200;
+  ctx.body = {
+    ts: new Date().toJSON(),
+    version: pkg.version,
+    name: pkg.name,
+    repository: pkg.repository
+  };
+};

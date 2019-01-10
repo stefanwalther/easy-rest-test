@@ -1,10 +1,8 @@
-const helmet = require('helmet');
+const helmet = require('koa-helmet');
 
 module.exports = {
-  name: 'helmet',
-  configure: app => {
-    console.log('[middleware:helmet]');
-
+  priority: 1000,
+  execute(app) {
     app.use(helmet());
   }
 };
