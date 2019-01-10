@@ -45,8 +45,8 @@ class AppServer {
     } else {
       logger.trace('[app-server]  No server to close');
     }
-
   }
+
 }
 
 module.exports = AppServer;
