@@ -46,14 +46,15 @@ describe('[integration] => generic dataset', () => {
   });
 
   describe('`GET /file/:name`', () => {
-    it('downloads a file', async () => {
-      const item = 'offices';
-      await server
-        .get(`/file/${item}`)
-        .expect(HttpStatus.OK)
-        .then(result => {
-          console.log(result.headers);
-        });
+    DATASETS.forEach(item => {
+      it(`downloads the file '${item}.csv'`, async () => {
+        await server
+          .get(`/file/${item}`)
+          .expect(HttpStatus.OK)
+          .then(result => {
+            console.log(result.headers);
+          });
+      });
     });
   });
 });

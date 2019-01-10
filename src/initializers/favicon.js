@@ -1,10 +1,9 @@
-const favicon = require('serve-favicon');
+const favicon = require('koa-favicon');
 const path = require('path');
 
 module.exports = {
-  name: 'favicon',
-  configure: app => {
-    console.log('[middleware:favicon]');
+  priority: 1000,
+  execute(app) {
     app.use(favicon(path.join(__dirname, './../public', 'favicon.ico')));
   }
 };

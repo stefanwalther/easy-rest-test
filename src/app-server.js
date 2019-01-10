@@ -1,10 +1,10 @@
-const initializer = require('express-initializers');
 const _ = require('lodash');
 const path = require('path');
-const express = require('express');
 const logger = require('winster').instance();
 
-const {decorateApp} = require('@awaitjs/express');
+const Koa = require('koa');
+const initializer = require('koa-initializer');
+const index = require('./routes');
 
 const defaultConfig = require('./config/server-config.js');
 
@@ -16,18 +16,19 @@ class AppServer {
     this.app = null;
     this.server = null;
 
-    this.app = decorateApp(express());
+    this.app = new Koa();
   }
 
   async start() {
 
-    await initializer(this.app, {directory: path.join(__dirname, 'initializers')});
+    await initializer(this.app, path.join(__dirname, './initializers'));
+    this.app.use(index.routes(), index.allowedMethods());
 
     try {
       this.server = await this.app.listen(this.config.PORT);
-      logger.info(`[app-server] Express server listening on port ${this.config.PORT} in "${this.config.NODE_ENV}" mode`);
+      logger.info(`[app-server] Koa server listening on port ${this.config.PORT} in "${this.config.NODE_ENV}" mode`);
     } catch (err) {
-      logger.fatal('[app-server] Cannot start express server', err);
+      logger.fatal('[app-server] Cannot start koa server', err);
       throw err;
     }
   }

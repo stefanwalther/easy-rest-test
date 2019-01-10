@@ -1,8 +1,9 @@
-const expressResult = require('express-result');
 const logger = require('winster').instance();
 const path = require('path');
 const parse = require('csv-parse/lib/sync');
 const _ = require('lodash');
+
+const send = require('koa-send');
 
 const utils = require('./../../utils');
 
@@ -19,8 +20,8 @@ class GenericDatasetController {
     return parse(fileContent, parseOptions);
   }
 
-  static async get(req, res) {
-    const datasets = _.split(_.trim(req.params.name), ',');
+  static async get(ctx) {
+    const datasets = _.split(_.trim(ctx.params.name), ',');
     logger.trace('[GenericDatasetController.get]', datasets);
 
     let result = {
@@ -31,17 +32,17 @@ class GenericDatasetController {
       result.data[item] = await GenericDatasetController._getDataSet(item);
     }));
 
-    return expressResult.ok(res, result);
+    ctx.response.status = 200;
+    ctx.response.body = result;
+
   }
 
-  static async getFile(req, res) {
-    const dataset = req.params.name;
+  static async getFile(ctx) {
+    const dataset = ctx.params.name;
     logger.trace('[GenericDatasetController.getFile]', dataset);
 
-    const filePath = path.resolve(__dirname, `./../../../data/${dataset}.csv`);
-    const fileName = path.basename(filePath);
-    return res.download(filePath, fileName);
-
+    const filePath = `${dataset}.csv`;
+    await send(ctx, filePath, {root: path.resolve(__dirname, './../../../data')});
   }
 
 }

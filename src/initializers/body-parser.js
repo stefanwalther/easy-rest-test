@@ -1,10 +1,10 @@
-const bodyParser = require('body-parser');
+const koaBody = require('koa-body');
 
 module.exports = {
-  name: 'body-parser',
-  configure: app => {
-    console.log('[middleware:body-parser]');
-    app.use(bodyParser.urlencoded({extended: true}));
-    app.use(bodyParser.json());
+  priority: 1000,
+  execute(app) {
+    app.use(koaBody({
+      jsonLimit: '1kb'
+    }));
   }
 };
