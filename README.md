@@ -38,6 +38,11 @@ For each of the datasets (right now only .csv files) you have provided, the foll
 - `<server-url>/:dataset` - e.g. http://localhost:3000/sales-data for the file `./data/sales-data.csv`.
 - `<server-url>/file/:dataset` - to download the entire file.
 
+## Options
+`<server-url>/:dataset` can be used with the following options:
+
+- `delay` - Serve the response with a delay of `n` milliseconds, e.g `/sales-data?delay=2000`.
+
 ## Deployment
 The entire idea of this solution is to deploy a REST service with some basic data (e.g. for testing purposes) within less than a minute:
 
