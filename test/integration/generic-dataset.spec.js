@@ -37,7 +37,6 @@ describe('[integration] => generic dataset', () => {
           .get(`/${item}`)
           .expect(HttpStatus.OK)
           .then(result => {
-            console.log(result.body);
             expect(result.body).to.have.a.property('data');
             expect(result.body.data).to.exist.to.have.a.property(item);
           });
@@ -62,10 +61,10 @@ describe('[integration] => generic dataset', () => {
       it(`downloads the file '${item}.csv'`, async () => {
         await server
           .get(`/file/${item}`)
-          .expect(HttpStatus.OK)
-          .then(result => {
-            console.log(result.headers);
-          });
+          .expect(HttpStatus.OK);
+        // .then(result => {
+        //  console.log(result.headers);
+        // });
       });
     });
   });

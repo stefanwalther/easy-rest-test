@@ -4,7 +4,9 @@
   "description": "Get a basic REST service (for testing purposes) up an running in minutes.",
   "keywords": [
     "csv",
-    "rest"
+    "rest",
+    "mock",
+    "test"
   ],
   "homepage": "https://github.com/stefanwalther/csv-to-rest#readme",
   "bugs": {
@@ -18,6 +20,7 @@
   "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
   "main": "index.js",
   "scripts": {
+    "coverage": "nyc report",
     "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "docs:watch": "nodemon --config ./nodemon.json --exec npm run docs",
     "precommit": "npm run lint:fix",
@@ -32,9 +35,9 @@
     "start:debug": "node --inspect=0.0.0.0 index.js",
     "start:watch": "npm run ensure:nodemon && nodemon -L --config ./nodemon.json --exec npm run start",
     "start:watch:debug": "npm run ensure:nodemon && nodemon -L --config ./nodemon.json --exec npm run start:debug",
-    "test": "npm run lint && npm run test:integration",
-    "test:integration": "mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
-    "test:unit": "node ./node_modules/mocha/bin/_mocha './test/unit/**/*.spec.js' --require './test/mocha.conf.js'"
+    "test": "nyc --reporter=lcov mocha './test/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
+    "test:integration": "nyc --reporter=lcov mocha './test/integration/**/*.spec.js' --require './test/mocha.conf.js' --timeout 6000",
+    "test:unit": "nyc --reporter=lcov mocha './test/unit/**/*.spec.js' --require './test/mocha.conf.js'"
   },
   "dependencies": {
     "csv-parse": "^4.3.0",
@@ -53,12 +56,14 @@
   "devDependencies": {
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
+    "codecov": "^3.1.0",
     "eslint": "5.12.0",
     "eslint-config-space-single": "0.3.11",
     "eslint-plugin-mocha": "5.2.0",
     "http-status-code": "2.1.0",
     "husky": "1.3.1",
     "mocha": "5.2.0",
+    "nyc": "^13.1.0",
     "read-pkg-up": "4.0.0",
     "supertest": "3.3.0"
   },

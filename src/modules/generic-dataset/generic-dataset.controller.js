@@ -26,7 +26,10 @@ class GenericDatasetController {
     };
 
     logger.trace('ctx.query', ctx.query);
-    if (ctx.query.delay) {
+    if (ctx && ctx.query && ctx.query.delay) {
+      if (isNaN(ctx.query.delay)) {
+        throw new Error('Querystring `delay` must be a number.');
+      }
       options.delay = ctx.query.delay;
     }
 
