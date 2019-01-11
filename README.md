@@ -3,6 +3,8 @@
 > Get a basic REST service (for testing purposes) up an running in minutes.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/easy-rest-test.svg)](https://circleci.com/gh/stefanwalther/easy-rest-test)
+[![Codecov](https://img.shields.io/codecov/c/github/stefanwalther/easy-rest-test.svg?logo=codecov)](https://codecov.io/gh/stefanwalther/easy-rest-test)
+[![XO code style](https://img.shields.io/badge/code_style-XO--space-5ed9c7.svg)](https://github.com/sindresorhus/eslint-config-xo-space)
 
 ---
 
