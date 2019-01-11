@@ -1,6 +1,6 @@
 There are only a few steps you need to follow:
 
-- Clone the repository (`git clone git@github.com:stefanwalther/csv-to-rest.git`)
+- Clone the repository (`git clone git@github.com:stefanwalther/{%=name%}.git`)
 - Do an `npm install`
 - Place the .csv file you want to expose through REST in the `./data/` folder.
 - Start the service by running `npm run start`

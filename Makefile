@@ -6,5 +6,9 @@ help:								## Show this help.
 .PHONY: help
 
 gen-readme:					## Generate README.md (using docker-verb)
-	docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb
+	npm run docs
 .PHONY: gen-readme
+
+gen-readme-watch:
+	npm run docs:watch
+.PHONY: gen-readme-watch
