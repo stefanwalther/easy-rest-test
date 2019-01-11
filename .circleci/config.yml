@@ -24,11 +24,17 @@ jobs:
           name: Run unit tests
           command: npm run test:unit
       - run:
+          name: Coverage report
+          command: npm run coverage
+      - run:
+          name: CodeCov
+          command: bash <(curl -s https://codecov.io/bash) -c -F unit
+      - run:
           name: Run integration tests
           command: npm run test:integration
-#      - run:
-#          name: Coverage report
-#          command: npm run coverage
-#      - run:
-#          name: CodeCov
-#          command: bash <(curl -s https://codecov.io/bash)
+      - run:
+          name: Coverage report
+          command: npm run coverage
+      - run:
+          name: CodeCov
+          command: bash <(curl -s https://codecov.io/bash) -c -F integration
