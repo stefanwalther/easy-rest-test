@@ -1,7 +1,7 @@
 The entire idea of this solution is to deploy a REST service with some basic data (e.g. for testing purposes) within less than a minute:
 
-### Using Heroku
-
+<details>
+<summary><strong>Using Heroku</strong></summary>
 Assuming that you have cloned the repository, follow these steps to deploy your basic REST service:
 
 - Make sure you have a Heroku account
@@ -15,7 +15,14 @@ Assuming that you have cloned the repository, follow these steps to deploy your 
   - manually using `Deploy Branch`
 - Access one of your data-sources by hitting e.g `https://my-rest-service.herokuapp.com/sales-data`
 
+</details>
 
-### Using docker
 
+<details>
+<summary><strong>Using docker</strong></summary>
 (TBD)
+</details>
+
+
+
+
