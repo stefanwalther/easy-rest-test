@@ -4,7 +4,9 @@
   "description": "Get a basic REST service (for testing purposes) up an running in minutes.",
   "keywords": [
     "csv",
-    "rest"
+    "rest",
+    "mock",
+    "test"
   ],
   "homepage": "https://github.com/stefanwalther/csv-to-rest#readme",
   "bugs": {
