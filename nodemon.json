@@ -2,5 +2,13 @@
   "env": {
   "NODE_ENV": "development"
 },
-  "ext": "mjs js json yml"
+  "ext": "mjs js json yml md",
+  "verbose": false,
+  "ignore": [
+    "README.md"
+  ],
+  "watch": [
+    ".verb.md",
+    "docs"
+  ]
 }

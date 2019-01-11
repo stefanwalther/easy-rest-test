@@ -1,7 +1,7 @@
 {
-  "name": "csv-to-rest",
+  "name": "easy-rest-test",
   "version": "0.1.0",
-  "description": "Serve some .csv files via a REST service in a few minutes.",
+  "description": "Get a basic REST service (for testing purposes) up an running in minutes.",
   "keywords": [
     "csv",
     "rest"
@@ -18,6 +18,8 @@
   "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
   "main": "index.js",
   "scripts": {
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
+    "docs:watch": "nodemon --config ./nodemon.json --exec npm run docs",
     "precommit": "npm run lint:fix",
     "ensure:nodemon": "(npm list nodemon -g || npm install nodemon -g)",
     "lint": "npm run lint:src && npm run lint:test",
