@@ -2,7 +2,6 @@
 const GenericDatasetController = require('./../../src/modules/generic-dataset/generic-dataset.controller');
 
 describe('[unit] => generic-dataset', () => {
-
   describe('_getOptions', () => {
     it('returns the default `delay` setting', () => {
       let res = GenericDatasetController._getOptions({});
@@ -23,8 +22,9 @@ describe('[unit] => generic-dataset', () => {
           delay: 'xx'
         }
       };
-      expect(() => {GenericDatasetController._getOptions(ctx)}).to.throw();
+      expect(() => {
+        GenericDatasetController._getOptions(ctx);
+      }).to.throw('Querystring `delay` must be a number.');
     });
-  })
-
+  });
 });
