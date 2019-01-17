@@ -5,12 +5,30 @@ const testConfig = require('./../config/server-config');
 const AppServer = require('./../../src/app-server');
 
 const DATASETS = [
-  'categories',
-  'employees',
-  'offices',
-  'products',
-  'sales-data',
-  'suppliers'
+  {
+    name: 'categories',
+    records: 4
+  },
+  {
+    name: 'employees',
+    records: 8
+  },
+  {
+    name: 'offices',
+    records: 2
+  },
+  {
+    name: 'products',
+    records: 4
+  },
+  {
+    name: 'sales-data',
+    records: 24
+  },
+  {
+    name: 'suppliers',
+    records: 4
+  }
 ];
 
 describe('[integration] => generic dataset', () => {
@@ -32,21 +50,33 @@ describe('[integration] => generic dataset', () => {
 
   describe('`GET /:name`', () => {
     DATASETS.forEach(item => {
-      it(`should return an array for '${item}'`, async () => {
+      it(`should return an array for '${item.name}'`, async () => {
         await server
-          .get(`/${item}`)
+          .get(`/${item.name}`)
           .expect(HttpStatus.OK)
           .then(result => {
             expect(result.body).to.have.a.property('data');
-            expect(result.body.data).to.exist.to.have.a.property(item);
+            expect(result.body.data).to.exist.to.have.a.property(item.name);
+            expect(Object.keys(result.body.data[item.name][0])).to.be.of.length(item.records);
           });
       });
+    });
+
+    xit('removes empty object in case of trailing delimiters', async () => {
+      await server
+        .get(`/${item.name}`)
+        .expect(HttpStatus.OK)
+        .then(result => {
+          expect(result.body).to.have.a.property('data');
+          expect(result.body.data).to.exist.to.have.a.property(item.name);
+          expect(Object.keys(result.body.data[item.name][0])).to.be.of.length(item.records);
+        });
     });
 
     it('should delay the result using query option `delay`', async () => {
       let tsStart = new Date();
       await server
-        .get(`/${DATASETS[0]}`)
+        .get(`/${DATASETS[0].name}`)
         .query({delay: 1000})
         .expect(HttpStatus.OK)
         .then(() => {
@@ -58,9 +88,9 @@ describe('[integration] => generic dataset', () => {
 
   describe('`GET /file/:name`', () => {
     DATASETS.forEach(item => {
-      it(`downloads the file '${item}.csv'`, async () => {
+      it(`downloads the file '${item.name}.csv'`, async () => {
         await server
-          .get(`/file/${item}`)
+          .get(`/file/${item.name}`)
           .expect(HttpStatus.OK);
         // .then(result => {
         //  console.log(result.headers);
