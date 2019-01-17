@@ -9,15 +9,31 @@ const utils = require('./../../utils');
 
 class GenericDatasetController {
 
+  static async _skipEmptyProps(input) {
+    input.forEach(item => {
+      let propNames = Object.getOwnPropertyNames(item);
+      for (let i = 0; i < propNames.length; i++) {
+        let propName = propNames[i];
+        if (item[propName] === null || item[propName] === undefined || item[propName].length === 0) {
+          delete item[propName];
+        }
+      }
+    });
+    return input;
+  }
+
   static async _getDataSet(dataset) {
     const filePath = path.resolve(__dirname, `./../../../data/${dataset}.csv`);
     let fileContent = await utils.readFile(filePath);
     const parseOptions = {
       columns: true,
       delimiter: ';',
-      skip_empty_lines: true
+      skip_empty_lines: true,
+      ltrim: true,
+      rtrim: true,
+      trim: true
     };
-    return parse(fileContent, parseOptions);
+    return GenericDatasetController._skipEmptyProps(parse(fileContent, parseOptions));
   }
 
   static _getOptions(ctx) {
