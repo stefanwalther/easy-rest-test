@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+
+  easy-rest-test:
+    image: stefanwalther/easy-rest-test
+    container_name: easy-rest-test
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production

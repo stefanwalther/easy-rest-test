@@ -20,9 +20,24 @@ Assuming that you have cloned the repository, follow these steps to deploy your 
 
 <details>
 <summary><strong>Using docker</strong></summary>
-(TBD)
+
+Using `docker run`:
+
+```
+$ docker run -it stefanwalther/easy-rest-test
+```
+
+Using `docker-compose`:
+
+```
+$ docker-compose up
+```
+
 </details>
 
 
-
+<details>
+<summary><strong>Using heroku</strong></summary>
+(tbd)
+</details>
 
