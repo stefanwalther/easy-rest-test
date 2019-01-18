@@ -1,0 +1,21 @@
+ARG NODE_VER="10.9.0"
+ARG PORT=3000
+
+FROM node:${NODE_VER}-alpine as RELEASE
+
+ENV HOME_DIR "opt/easy-rest-test"
+
+RUN mkdir -p $HOME_DIR
+WORKDIR $HOME_DIR
+
+COPY index.js package.json ./
+
+RUN npm config set loglevel warn
+RUN npm install --quiet --only=production --no-package-lock
+
+COPY /src ./src/
+
+ENV PORT=${PORT}
+EXPOSE $PORT
+
+CMD ["npm", "run", "start"]
