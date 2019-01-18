@@ -1,4 +1,5 @@
 NODE_VER := $(shell cat .nvmrc)
+DOCKER_IMG_SIZE := $(docker image inspect stefanwalther/easy-rest-test:latest --format='{{.Size}}')
 
 help:																																																## Show this help.
 	@echo ''
@@ -17,7 +18,11 @@ gen-readme-watch:
 
 build:																																															## Build the docker image (production)
 	docker build --build-arg NODE_VER=$(NODE_VER) -t stefanwalther/easy-rest-test -f Dockerfile.prod .
+	docker images | grep easy-rest-test
 .PHONY: build
+
+size:
+	@echo "Size: $(DOCKER_IMG_SIZE)"
 
 up:																																																	## Get the stack up and running (docker-compose.dev.yml)
 	docker-compose --f=docker-compose.yml up
