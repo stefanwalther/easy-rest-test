@@ -1,4 +1,4 @@
-Right now only `.csv` files are supported and placed into the `./data` folder.
+Right now only `.csv` files are supported when placed into the `./data` folder.
 
 ### Conventions for .csv files
 
