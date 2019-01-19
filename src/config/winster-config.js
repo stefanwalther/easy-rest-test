@@ -12,17 +12,17 @@ module.exports = {
         prettyPrint(object) {
           return JSON.stringify(object, null, 2);
         },
-        handleExceptions: true
-      }
-    }
+        handleExceptions: true,
+      },
+    },
   ],
   production: [
     {
       transporter: Winston.transports.File,
       options: {
         name: 'File',
-        filename: 'foo.log'
-      }
+        filename: 'foo.log',
+      },
     },
     {
       transporter: Winston.transports.Console,
@@ -34,11 +34,11 @@ module.exports = {
         prettyPrint(object) {
           return JSON.stringify(object, null, 2);
         },
-        handleExceptions: true
-      }
-    }
+        handleExceptions: true,
+      },
+    },
   ],
   test: [
     // Your transports for test
-  ]
+  ],
 };

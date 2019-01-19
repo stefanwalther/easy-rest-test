@@ -5,5 +5,5 @@ module.exports = {
   priority: 1000,
   execute(app) {
     app.use(favicon(path.join(__dirname, './../public', 'favicon.ico')));
-  }
+  },
 };

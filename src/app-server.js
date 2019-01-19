@@ -9,7 +9,6 @@ const index = require('./routes');
 const defaultConfig = require('./config/server-config.js');
 
 class AppServer {
-
   constructor(config) {
     this.config = _.extend(defaultConfig, _.clone(config) || {});
 
@@ -20,13 +19,16 @@ class AppServer {
   }
 
   async start() {
-
     await initializer(this.app, path.join(__dirname, './initializers'));
     this.app.use(index.routes(), index.allowedMethods());
 
     try {
       this.server = await this.app.listen(this.config.PORT);
-      logger.info(`[app-server] Koa server listening on port ${this.config.PORT} in "${this.config.NODE_ENV}" mode`);
+      logger.info(
+        `[app-server] Koa server listening on port ${this.config.PORT} in "${
+          this.config.NODE_ENV
+        }" mode`
+      );
     } catch (err) {
       logger.fatal('[app-server] Cannot start koa server', err);
       throw err;
@@ -34,7 +36,6 @@ class AppServer {
   }
 
   async stop() {
-
     if (this.server) {
       try {
         await this.server.close();
@@ -47,7 +48,6 @@ class AppServer {
       logger.trace('[app-server]  No server to close');
     }
   }
-
 }
 
 module.exports = AppServer;
