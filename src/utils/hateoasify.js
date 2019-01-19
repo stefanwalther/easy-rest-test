@@ -2,7 +2,6 @@
 const lodash = require('lodash');
 
 class Hateoasify {
-
   constructor(config) {
     this.data = config.data || {};
   }

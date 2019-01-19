@@ -6,6 +6,6 @@ module.exports.get = ctx => {
     ts: new Date().toJSON(),
     version: pkg.version,
     name: pkg.name,
-    repository: pkg.repository
+    repository: pkg.repository,
   };
 };

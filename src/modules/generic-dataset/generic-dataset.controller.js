@@ -8,13 +8,16 @@ const send = require('koa-send');
 const utils = require('./../../utils');
 
 class GenericDatasetController {
-
   static async _skipEmptyProps(input) {
     input.forEach(item => {
       let propNames = Object.getOwnPropertyNames(item);
       for (let i = 0; i < propNames.length; i++) {
         let propName = propNames[i];
-        if (item[propName] === null || item[propName] === undefined || item[propName].length === 0) {
+        if (
+          item[propName] === null ||
+          item[propName] === undefined ||
+          item[propName].length === 0
+        ) {
           delete item[propName];
         }
       }
@@ -31,14 +34,16 @@ class GenericDatasetController {
       skip_empty_lines: true,
       ltrim: true,
       rtrim: true,
-      trim: true
+      trim: true,
     };
-    return GenericDatasetController._skipEmptyProps(parse(fileContent, parseOptions));
+    return GenericDatasetController._skipEmptyProps(
+      parse(fileContent, parseOptions)
+    );
   }
 
   static _getOptions(ctx) {
     let options = {
-      delay: 0
+      delay: 0,
     };
 
     logger.trace('ctx.query', ctx.query);
@@ -60,22 +65,27 @@ class GenericDatasetController {
     logger.trace('[GenericDatasetController.get > options]', options);
 
     if (options.delay > 0) {
-      logger.trace(`[GenericDatasetController.get] > Delay the response for ${options.delay} ms`);
+      logger.trace(
+        `[GenericDatasetController.get] > Delay the response for ${
+          options.delay
+        } ms`
+      );
       await utils.sleep(options.delay);
     }
 
     let result = {
-      data: {}
+      data: {},
     };
 
-    await Promise.all(datasets.map(async item => {
-      result.data[item] = await GenericDatasetController._getDataSet(item);
-    }));
+    await Promise.all(
+      datasets.map(async item => {
+        result.data[item] = await GenericDatasetController._getDataSet(item);
+      })
+    );
 
     logger.trace('[GenericDatasetController.get] > return the result');
     ctx.response.status = 200;
     ctx.response.body = result;
-
   }
 
   static async getFile(ctx) {
@@ -83,9 +93,10 @@ class GenericDatasetController {
     logger.trace('[GenericDatasetController.getFile]', dataset);
 
     const filePath = `${dataset}.csv`;
-    await send(ctx, filePath, {root: path.resolve(__dirname, './../../../data')});
+    await send(ctx, filePath, {
+      root: path.resolve(__dirname, './../../../data'),
+    });
   }
-
 }
 
 module.exports = GenericDatasetController;
