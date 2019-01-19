@@ -1,5 +1,8 @@
 {
-  "extends": "eslint-config-space-single/test",
+  "extends": [
+    "eslint-config-space-single/test",
+    "eslint-config-prettier"
+    ],
   "rules": {
     "camelcase": "off"
   }
