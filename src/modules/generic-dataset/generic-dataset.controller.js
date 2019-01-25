@@ -2,7 +2,6 @@ const logger = require('winster').instance();
 const path = require('path');
 const parse = require('csv-parse/lib/sync');
 const _ = require('lodash');
-
 const send = require('koa-send');
 
 const utils = require('./../../utils');
@@ -79,7 +78,7 @@ class GenericDatasetController {
 
     await Promise.all(
       datasets.map(async item => {
-        result.data[item] = await GenericDatasetController._getDataSet(item);
+        result[item] = await GenericDatasetController._getDataSet(item);
       })
     );
 
