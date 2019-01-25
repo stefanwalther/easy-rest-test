@@ -1,7 +1,7 @@
 const helmet = require('koa-helmet');
 
 module.exports = {
-  priority: 1000,
+  priority: 2000,
   execute(app) {
     app.use(helmet());
   },
