@@ -2,7 +2,6 @@ const logger = require('winster').instance();
 const path = require('path');
 const parse = require('csv-parse/lib/sync');
 const _ = require('lodash');
-
 const send = require('koa-send');
 
 const utils = require('./../../utils');
