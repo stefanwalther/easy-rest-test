@@ -58,7 +58,7 @@
     "chai-as-promised": "7.1.1",
     "codecov": "3.1.0",
     "eslint": "5.12.1",
-    "eslint-config-prettier": "3.6.0",
+    "eslint-config-prettier": "4.3.0",
     "eslint-config-space-single": "0.3.11",
     "eslint-plugin-mocha": "5.2.1",
     "http-status-code": "2.1.0",
