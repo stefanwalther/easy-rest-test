@@ -73,7 +73,7 @@ class GenericDatasetController {
     }
 
     let result = {
-      data: {},
+      //data: {},
     };
 
     await Promise.all(
