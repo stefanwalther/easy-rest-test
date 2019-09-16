@@ -46,7 +46,7 @@
     "koa": "^2.6.2",
     "koa-body": "^4.0.6",
     "koa-favicon": "^2.0.1",
-    "koa-helmet": "^4.0.0",
+    "koa-helmet": "^5.0.0",
     "koa-initializer": "^2.0.1",
     "koa-router": "^7.4.0",
     "koa-send": "^5.0.0",
